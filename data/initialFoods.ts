@@ -63,7 +63,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 7,
     name: "Green Peas",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("peas"),
     description: "Mild flavor, good source of protein and iron.",
     recommendedAge: "6+ months",
     allergenInfo: "Low allergy risk",
@@ -72,7 +72,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 8,
     name: "Butternut Squash",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("butternut-squash"),
     description: "Natural sweetness, smooth texture. High in vitamins A and C.",
     recommendedAge: "6+ months",
     allergenInfo: "Low allergy risk",
@@ -83,7 +83,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 9,
     name: "Oatmeal",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("oatmeal"),
     description: "Iron-fortified, smooth texture. Good source of fiber.",
     recommendedAge: "6+ months",
     allergenInfo: "Introduce gradually to check for gluten sensitivity",
@@ -92,7 +92,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 10,
     name: "Rice Cereal",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("rice-cereal"),
     description: "Traditional first food, iron-fortified.",
     recommendedAge: "6+ months",
     allergenInfo: "Low allergy risk",
@@ -103,7 +103,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 11,
     name: "Eggs",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("egg"),
     description: "Excellent source of protein and healthy fats. Well-cooked only.",
     recommendedAge: "6+ months",
     allergenInfo: "Common allergen - introduce carefully and monitor",
@@ -112,7 +112,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 12,
     name: "Lentils",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("lentils"),
     description: "High in iron and protein. Cook until very soft.",
     recommendedAge: "6-8 months",
     allergenInfo: "Low allergy risk",
@@ -121,7 +121,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 13,
     name: "Greek Yogurt",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("yogurt"),
     description: "Rich in protein and calcium. Choose plain, full-fat varieties.",
     recommendedAge: "6+ months",
     allergenInfo: "Contains dairy - introduce carefully",
@@ -132,7 +132,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 14,
     name: "Green Beans",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("green-beans"),
     description: "Mild flavor, good source of vitamins. Steam until very soft.",
     recommendedAge: "6+ months",
     allergenInfo: "Low allergy risk",
@@ -141,7 +141,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 15,
     name: "Spinach",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("spinach"),
     description: "Iron-rich leafy green. Cook well and puree smooth.",
     recommendedAge: "6-8 months",
     allergenInfo: "Low allergy risk",
@@ -152,7 +152,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 16,
     name: "Mango",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("mango"),
     description: "Sweet tropical fruit rich in vitamins A and C.",
     recommendedAge: "6+ months",
     allergenInfo: "Low allergy risk",
@@ -161,7 +161,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 17,
     name: "Peach",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("peach"),
     description: "Soft texture when ripe, rich in vitamins. Cook if needed.",
     recommendedAge: "6+ months",
     allergenInfo: "Low allergy risk",
@@ -172,7 +172,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 18,
     name: "Chicken",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("chicken"),
     description: "Excellent source of protein and iron. Puree well with liquid.",
     recommendedAge: "7-8 months",
     allergenInfo: "Low allergy risk",
@@ -181,7 +181,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 19,
     name: "White Fish",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("whitefish"),
     description: "Mild flavor, good source of protein. Remove all bones carefully.",
     recommendedAge: "7-8 months",
     allergenInfo: "Common allergen - introduce carefully",
@@ -190,7 +190,7 @@ export const InitialFoods: FoodItem[] = [
   {
     id: 20,
     name: "Tofu",
-    imageUrl: "/api/placeholder/150/150",
+    imageUrl: getImageUrl("tofu"),
     description: "Soft texture, rich in protein. Choose firm variety and cook well.",
     recommendedAge: "6+ months",
     allergenInfo: "Soy is a common allergen - introduce carefully",
