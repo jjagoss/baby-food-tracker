@@ -10,11 +10,7 @@
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "optimize-images": "ts-node scripts/optimize-img.js",
-    "typeorm": "typeorm-ts-node-commonjs",
-    "migration:generate": "npm run typeorm migration:generate -- -d src/database/data-source.ts",
-    "migration:create": "npm run typeorm migration:create",
-    "migration:run": "npm run typeorm migration:run -- -d src/database/data-source.ts",
-    "migration:revert": "npm run typeorm migration:revert -- -d src/database/data-source.ts"
+    "typeorm": "typeorm-ts-node-commonjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",
