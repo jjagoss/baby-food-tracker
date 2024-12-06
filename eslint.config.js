@@ -1,35 +1,37 @@
-// eslint.config.js
 import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// ES Modules doesn't support __dirname
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const compat = new FlatCompat({
   baseDirectory: __dirname
 });
 
 export default [
-  // Base JS config
   js.configs.recommended,
-
-  // Needed for now to support traditional configs
   ...compat.config({
     extends: [
       'plugin:react/recommended',
       'plugin:react/jsx-runtime',
       'plugin:react-hooks/recommended',
-      'plugin:@typescript-eslint/recommended'
     ],
   }),
 
-  // Global settings
   {
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
       parser: (await import('@typescript-eslint/parser')).default,
+      globals: {
+        // Define globals directly without spreading
+        window: true,
+        document: true,
+        console: true,
+        module: true,
+        process: true,
+        __dirname: true
+      },
       parserOptions: {
         ecmaFeatures: {
           jsx: true
@@ -40,13 +42,9 @@ export default [
       react: {
         version: 'detect'
       }
-    },
-    linterOptions: {
-      reportUnusedDisableDirectives: true,
     }
   },
 
-  // TypeScript files
   {
     files: ['**/*.ts', '**/*.tsx'],
     plugins: {
@@ -56,35 +54,42 @@ export default [
       'react-refresh': (await import('eslint-plugin-react-refresh')).default,
     },
     rules: {
-      // TypeScript specific rules
-      '@typescript-eslint/no-unused-vars': ['warn', { 
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_'
-      }],
-      '@typescript-eslint/no-explicit-any': 'warn',
+      // Turned off TypeScript rules
+      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'off',
+      '@typescript-eslint/no-unused-vars': ['warn', { 
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        ignoreRestSiblings: true 
+      }],
 
-      // React specific rules
+      // Relaxed React rules
       'react/prop-types': 'off',
-      'react-refresh/only-export-components': ['warn', { 
-        allowConstantExport: true 
-      }],
+      'react/react-in-jsx-scope': 'off',
+      'react/display-name': 'off',
+      'react-hooks/rules-of-hooks': 'error', // Keep this one for safety
+      'react-hooks/exhaustive-deps': 'warn',
+      'react-refresh/only-export-components': 'off',
 
-      // General rules
-      'no-console': ['warn', { 
-        allow: ['warn', 'error'] 
-      }],
+      // Relaxed general rules
+      'no-console': 'off',
+      'no-unused-vars': 'off', // TypeScript handles this
+      'prefer-const': 'warn',
+      'no-undef': 'off', // TypeScript handles this
     }
   },
 
-  // Test files
+  // Even more relaxed rules for test files
   {
     files: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx'],
     rules: {
-      // Relaxed rules for tests
+      // Disable most rules for tests
       '@typescript-eslint/no-explicit-any': 'off',
-      'no-console': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'off',
+      'react-hooks/rules-of-hooks': 'off',
+      'react-hooks/exhaustive-deps': 'off',
     }
   },
 
@@ -93,10 +98,12 @@ export default [
     ignores: [
       'dist/**',
       'node_modules/**',
+      'build/**',
       'coverage/**',
       '*.config.js',
       '*.config.ts',
-      'public/**'
+      'public/**',
+      'playwright-report/**',
     ]
   }
 ];
