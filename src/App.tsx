@@ -21,11 +21,6 @@ const App = () => {
     setFoods(currentFoods => [...currentFoods, foodToAdd]);
   };
 
-  const handleFoodSelect = (food: FoodItem) => {
-    setSelectedFood(food);
-    setIsDialogOpen(true);
-  };
-
   const handleUpdateStatus = (tried: boolean) => {
     if (!selectedFood) return;
 

@@ -23,14 +23,6 @@ import { Plus } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { FoodItem } from "types";
 
-interface AddFoodFormData {
-    name: string;
-    description: string;
-    recommendedAge: string;
-    allergenInfo: string;
-    imageUrl: string;
-}
-
 type NewFoodData = Omit<FoodItem, 'id' | 'tried'>;
 
 interface AddFoodFormProps {
@@ -57,7 +49,7 @@ interface AddFoodFormProps {
       };
 
     return (
-        <Dialog>
+        <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
                 <Button className="w-full h-full min-h-[12rem] flex flex-col gap-2 items-center justify-center">
                     <Plus size={24} />
