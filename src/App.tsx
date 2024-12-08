@@ -9,6 +9,18 @@ const App = () => {
   const [selectedFood, setSelectedFood] = useState<FoodItem | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+  const handleAddFood = (newFood: Omit<FoodItem, 'id' | 'tried'>) => {
+    // Create a new food object with an auto-generated id and initial tried status
+    const foodToAdd: FoodItem = {
+      ...newFood,
+      id: foods.length + 1, // Simple ID generation - in a real app, you'd want something more robust
+      tried: false
+    };
+
+    // Update the foods array by adding the new food
+    setFoods(currentFoods => [...currentFoods, foodToAdd]);
+  };
+
   const handleFoodSelect = (food: FoodItem) => {
     setSelectedFood(food);
     setIsDialogOpen(true);
@@ -54,7 +66,11 @@ const App = () => {
 
       <FoodGrid
         foods={foods}
-        onFoodSelect={handleFoodSelect}
+        onFoodSelect={(food) => {
+          setSelectedFood(food);
+          setIsDialogOpen(true);
+        }}
+        onAddFood={handleAddFood}
       />
 
       <FoodDialog
