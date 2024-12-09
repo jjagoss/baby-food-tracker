@@ -1,5 +1,5 @@
-import { FoodItem } from "../types";
-import { getImageUrl } from '../utils/imageUtils'
+import { FoodItem } from "../../types";
+import { getImageUrl } from '../../utils/imageUtils'
 
 // data/initialFoods.ts
 export const InitialFoods: FoodItem[] = [

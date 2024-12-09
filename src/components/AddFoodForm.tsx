@@ -108,7 +108,7 @@ interface AddFoodFormProps {
                                 <FormItem>
                                     <FormLabel>Recommended Age</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="6+ months" {...field}/>
+                                        <Input placeholder="6 months" {...field}/>
                                     </FormControl>
                                     <FormDescription>
                                         When can babies typically start eating this food?

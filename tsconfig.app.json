@@ -30,5 +30,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "data", "typeorm-config.ts"]
+  "include": ["src", "src/data", "typeorm-config.ts"]
 }

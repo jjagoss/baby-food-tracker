@@ -1,9 +1,14 @@
 import {test, expect } from '@playwright/test';
 
 test.describe('Baby Food Tracker', () => {
-    test.beforeEach(async ({page}) => {
-        await page.goto('http://localhost:5173/')
-    });
+    test.beforeEach(async ({ page }) => {
+        await page.goto('http://localhost:5173/login');
+        await page.fill('[type="email"]', 'test@example.com');
+        await page.fill('[type="password"]', 'Password123');
+        await page.click('button:text("Sign in")');
+        // Wait for redirect to food tracker
+        await expect(page.getByRole('heading', { name: 'Baby Food Tracker' })).toBeVisible();
+      });
 
     test('should display title and food grid', async ({ page }) => {
         await expect(page.getByRole('heading', { name: 'Baby Food Tracker' }))
@@ -75,5 +80,19 @@ test.describe('Baby Food Tracker', () => {
         const triedIndicators = await page.getByTestId('tried-indicator').all();
         expect(triedIndicators.length).toBe(2);
     });
-})
+    
+    test('can add a new food', async ({ page }) => {
+          await page.click('text="Add New Food"');
+          
+          await page.fill('[placeholder="Sweet Potato"]', 'Broccoli');
+          await page.fill('textarea', 'Nutrient-rich green vegetable');
+          await page.fill('[placeholder="6 months"]', '8 months');
+          await page.fill('[placeholder="Low allergy risk"]', 'Low allergy risk');
+          
+          await page.click('button:text("Add Food")');
+          
+          await expect(page.getByText('Broccoli')).toBeVisible();
+        });
+    }
+);
 
