@@ -34,10 +34,9 @@ const registerSchema = z.object({
 type LoginFormData = z.infer<typeof loginSchema>;
 type RegisterFormData = z.infer<typeof registerSchema>;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface LoginPageProps {
- onLogin: () => void;
-}
+// interface LoginPageProps {
+//  onLogin: () => void;
+// }
 
 export const LoginPage = () => {
  const { login, register } = useAuth();

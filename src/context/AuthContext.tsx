@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }: {children: ReactNode }) => {
     const [isLoading, setIsLoading] = useState(false)
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const login = async(email: string, password: string) => {
+    const login = async(email: string, _password: string) => {
         setIsLoading(true)
         try {
             await new Promise(resolve => setTimeout(resolve, 1000));
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }: {children: ReactNode }) => {
     };
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const register = async(email: string, password: string) => {
+    const register = async(_email: string, _password: string) => {
         setIsLoading(true)
         try {
             await new Promise(resolve => setTimeout(resolve, 1000))
