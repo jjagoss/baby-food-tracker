@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: baby-food-tracker-frontend
+    env: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://your-backend-service.onrender.com # Update with your backend URL
+      # Add any other environment variables you need
+    headers:
+      # For SPA routing
+      - path: /*
+        name: Cache-Control
+        value: no-cache
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+    routes:
+      # Handle client-side routing
+      - type: rewrite
+        source: /*
+        destination: /index.html
